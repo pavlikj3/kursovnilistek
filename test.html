@@ -16,7 +16,6 @@
 		    $.each(data[0].exchangeRates, function(index,value) 
 		    {
 			var row = $("<tr><td>" + value.currencyFullName + "</td><td align='right'>" + value.cashBuy + "</td><td align='right'>" + value.cashSell + "</td></tr>");
-			//var row = $("<tr><td>" + value.currencyFullName + "</td><td align='right'>" + value.canBuy + "</td><td align='right'>" + value.canSell + "</td></tr>");
 			$("#mainTable tbody").append(row);
 		    });
 		},"json");
