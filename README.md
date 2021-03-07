@@ -10,6 +10,8 @@ Na této stránce jsou kurzy ze 3 zdrojů dat:
 * Z vlastní restové služby z dat z db (http://localhost:8080/api/kurs)
 * Z vlastní restové služby z dat, která jsou načtena z banky (http://localhost:8080/api/kursKb)
 
+Jako uložiště dat se používá mariadb databáze. 
+
 ## Konfigurace
 Provádí se před kompilací editací souborů src/main/resources/application.properties a to těchto parametrů připojení do databáze:
 * spring.datasource.url=jdbc:mysql://localhost:3306/kursovnilistek
