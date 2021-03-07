@@ -14,6 +14,9 @@ public class KursovniListekController
 	@Autowired
 	private KursovniListekRepository kursovniListekController;
 	
+	@Autowired
+	private KursovniListekService kursovniListekService;
+	
 	@RequestMapping("/hello")
 	public String hello()
 	{
@@ -25,4 +28,11 @@ public class KursovniListekController
 	{
 		return kursovniListekController.findAll();
 	}
+		
+	@RequestMapping("/kursKb")
+	public List<KursovniListek> kursKb()
+	{
+		return kursovniListekService.loadFromKb();
+	}
+
 }
