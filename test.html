@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<title>Testovací stránka pro restovou službu kursovního lístku</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script language="javascript">
+	
+	    $(document).ready(function () 
+	    {
+		$("#mainTable tbody tr").remove();
+		$.get("https://api.kb.cz/openapi/v1/exchange-rates",{},function (data) 
+		{
+		    $.each(data[0].exchangeRates, function(index,value) 
+		    {
+			var row = $("<tr><td>" + value.currencyFullName + "</td><td align='right'>" + value.cashBuy + "</td><td align='right'>" + value.cashSell + "</td></tr>");
+			//var row = $("<tr><td>" + value.currencyFullName + "</td><td align='right'>" + value.canBuy + "</td><td align='right'>" + value.canSell + "</td></tr>");
+			$("#mainTable tbody").append(row);
+		    });
+		},"json");
+	    }
+	    );
+	</script>
+    </head>
+    <body>
+	<h1>Kursovní lístek</h1>
+	<table id="mainTable" class="table">
+	    <thead>
+		<tr>
+		    <th>Měna</th>
+		    <th>Nákup</th>
+		    <th>Prodej</th>
+		</tr>
+	    </thead>
+	    <tbody>
+		
+	    </tbody>
+	</table>
+    </body>
+</html>
